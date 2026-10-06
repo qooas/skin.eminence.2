@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window>
-    <defaultcontrol always="true">9000</defaultcontrol>
-    <controls>
-        <include>GlobalOverlay</include>
-        <control type="group">
-            <include condition="!Skin.HasSetting(HorizontalMenus)">Dialog_Center</include>
-            <include>Animation_FadeIn</include>
-        </control>
-        <control type="group">
-            <include condition="!Skin.HasSetting(HorizontalMenus)">Dialog_Center_Def</include>
-            <include condition="Skin.HasSetting(HorizontalMenus)">Dialog_Top</include>
-            <include condition="Skin.HasSetting(HorizontalMenus)">Dialog_Background</include>
-            <include content="Dialog_Top_IconHeader">
-                <param name="label" value="$LOCALIZE[33060]" />
-                <param name="icon" value="special://skin/extras/icons/power.png" />
-            </include>
-            <include content="Dialog_Center_Arrows" condition="!Skin.HasSetting(HorizontalMenus)">
-                <param name="id" value="9000" />
-            </include>
-            <include content="Dialog_Top_Arrows" condition="Skin.HasSetting(HorizontalMenus)">
-                <param name="id" value="9000" />
-            </include>
-
-            <control type="list" id="9000">
-                <include condition="Skin.HasSetting(HorizontalMenus)">Dialog_Top_PowerMenu</include>
-                <include condition="!Skin.HasSetting(HorizontalMenus)">Dialog_Center_PowerMenu</include>
-                <content><include>skinshortcuts-group-powermenu</include></content>
-            </control>
-
-        </control>
-    </controls>
+<window id="10111">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<controls>
+		<include>GlobalOverlay</include>
+		<control type="group">
+			<visible>!Skin.HasSetting(HorizontalMenus)</visible>
+			<include>Dialog_Center</include>
+			<include>Animation_FadeIn</include>
+		</control>
+		<control type="group">
+			<include condition="!Skin.HasSetting(HorizontalMenus)">Dialog_Center_Def</include>
+			<include condition="Skin.HasSetting(HorizontalMenus)">Dialog_Top</include>
+			<include condition="Skin.HasSetting(HorizontalMenus)">Dialog_Background</include>
+			<include content="Dialog_Top_IconHeader">
+				<param name="label" value="13005"/>
+				<param name="icon" value="special://skin/extras/icons/power.png"/>
+			</include>
+			<control type="group">
+				<visible>!Skin.HasSetting(HorizontalMenus)</visible>
+				<include content="Dialog_Center_Arrows">
+					<param name="id" value="9000"/>
+				</include>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(HorizontalMenus)</visible>
+				<include content="Dialog_Top_Arrows">
+					<param name="id" value="9000"/>
+				</include>
+			</control>
+			<control type="list" id="9000">
+				<include condition="Skin.HasSetting(HorizontalMenus)">Dialog_Top_PowerMenu</include>
+				<include condition="!Skin.HasSetting(HorizontalMenus)">Dialog_Center_PowerMenu</include>
+				<content>
+					<include>skinshortcuts-powermenu</include>
+				</content>
+			</control>
+		</control>
+	</controls>
 </window>
