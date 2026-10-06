@@ -358,4 +358,39 @@
 		<value condition="String.Contains(ListItem.MPAA,tv-y)">TV-Y</value>
 		<value>NR</value>
 	</variable>
+	<variable name="Label_Final_VideoCodec">
+		<value condition="[String.Contains(ListItem.FileName,.iso) | String.Contains(ListItem.FileName,bdmv) | String.Contains(ListItem.FileName,bluray) | String.Contains(ListItem.FileName,Bluray)] + String.IsEmpty(ListItem.VideoCodec)">h264</value>
+		<value condition="String.IsEqual(ListItem.VideoCodec,dvd) | String.Contains(ListItem.FileName,video_ts) | String.Contains(ListItem.FileName,VIDEO_TS)">mpeg2video</value>
+		<value condition="String.IsEqual(ListItem.VideoCodec,mpeg1video) | String.IsEqual(ListItem.VideoCodec,mpeg1)">mpeg1video</value>
+		<value condition="String.Contains(ListItem.VideoCodec,mpeg2) | String.Contains(ListItem.VideoCodec,v_)">mpeg2video</value>
+		<value condition="String.Contains(ListItem.FileName,.mkv) + [String.IsEmpty(ListItem.VideoCodec) | String.IsEqual(ListItem.VideoCodec,mpeg2video)]">mpeg2video</value>
+		<value condition="String.Contains(ListItem.VideoCodec,mpeg) + !String.Contains(ListItem.VideoCodec,1)">mpeg2video</value>
+		<value>$INFO[ListItem.VideoCodec]</value>
+	</variable>
+	<variable name="Label_Final_AudioIcon">
+		<value condition="[String.Contains(ListItem.FileName,bdmv) | String.Contains(ListItem.Path,BDMV) | String.Contains(ListItem.FileName,.iso) | String.Contains(ListItem.FileName,bluray)] + String.IsEmpty(ListItem.AudioCodec)">indicator/audio/dtshd_ma.png</value>
+		<value condition="String.IsEqual(ListItem.VideoCodec,dvd) | String.Contains(ListItem.Path,VIDEO_TS) | String.Contains(ListItem.FileName,video_ts)">indicator/audio/ac3.png</value>
+		<value condition="String.Contains(ListItem.AudioCodec,atmos) | String.Contains(ListItem.FileName,atmos) | String.Contains(ListItem.FileName,Atmos)">indicator/audio/atmos.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,truehd) | String.IsEqual(ListItem.AudioCodec,A_TRUEHD) | String.Contains(ListItem.FileName,truehd) | String.Contains(ListItem.FileName,TrueHD)">indicator/audio/truehd.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dtsx) | String.Contains(ListItem.FileName,dtsx) | String.Contains(ListItem.FileName,dts.x) | String.Contains(ListItem.FileName,dts_x) | String.Contains(ListItem.FileName,imax) | String.Contains(ListItem.FileName,IMAX)">indicator/audio/dts_x.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dtshd_ma) | String.IsEqual(ListItem.AudioCodec,dtsma)">indicator/audio/dtshd_ma.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dtshd_hra)">indicator/audio/dtshd_hra.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dca) | String.IsEqual(ListItem.AudioCodec,A_DTS) | String.Contains(ListItem.AudioCodec,dts) | String.Contains(ListItem.FileName,dtshd) | String.Contains(ListItem.FileName,dts-hd)">indicator/audio/dtshd_ma.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,flac) | String.Contains(ListItem.FileName,flac)">indicator/audio/flac.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,aac) | String.Contains(ListItem.FileName,aac)">indicator/audio/aac.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,wav) | String.Contains(ListItem.FileName,wav)">indicator/audio/pcm.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,pcm_bluray)">indicator/audio/pcm_bluray.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,pcm_s16le)">indicator/audio/pcm_s16le.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,pcm_s24le)">indicator/audio/pcm_s24le.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,pcm)">indicator/audio/pcm.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,ape)">indicator/audio/ape.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,vorbis) | String.IsEqual(ListItem.AudioCodec,ogg)">indicator/audio/vorbis.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,wmapro)">indicator/audio/wmapro.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,wma)">indicator/audio/wma.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,eac3) | String.IsEqual(ListItem.AudioCodec,dd+)">indicator/audio/eac3.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,ac3)">indicator/audio/ac3.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,mp3) | String.IsEqual(ListItem.AudioCodec,mp2) | String.IsEqual(ListItem.AudioCodec,mpeg2audio)">indicator/audio/mp3.png</value>
+		<value condition="!String.IsEmpty(ListItem.AudioCodec) + !String.IsEqual(ListItem.VideoCodec,dvd) + !String.Contains(ListItem.Path,BDMV)">$INFO[ListItem.AudioCodec]</value>
+		<value>$VAR[Image_AudioCodec]</value>
+	</variable>
 </includes>
