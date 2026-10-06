@@ -1,69 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<template>
-    <submenuOther include="submenu-widget" container="9002">
-        <property name="content" tag="property" attribute="name|widget" value="Weather">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,]/</property>
-        <property name="content" tag="property" attribute="name|widgetPath" />
-        <property name="target" tag="property" attribute="name|widgetTarget" />
-        <property name="isWeather" tag="property" attribute="name|widget" value="Weather">True</property>
-        <property name="isWeather">False</property>
-        <controls>
-            <control type="wraplist" id="9001">
-                <visible>Integer.IsEqual(Window(Home).Property(MenuFocus),9002) + !String.IsEmpty(Container(9002).ListItem.Property(widget))</visible>
-                <skinshortcuts>visibility</skinshortcuts>
-                <visible>!Player.HasVideo | [Player.HasVideo + !Skin.HasSetting(background.showvideo)]</visible>
-                <orientation>horizontal</orientation>
-                <width>100%</width>
-                <top>top</top>
-                <height>height</height>
-                <onfocus>SetProperty(FO9001,1,home)</onfocus>
-                <onunfocus>ClearProperty(FO9001,home)</onunfocus>
-                <onup>ClearProperty(FO9001,home)</onup>
-                <ondown>ClearProperty(FO9001,home)</ondown>
-                <onback>ClearProperty(FO9001,home)</onback>
-                <onback>9000</onback>
-                <ondown>9000</ondown>
-                <onup>SetFocus(9002)</onup>
-                <include condition="$SKINSHORTCUTS[isWeather]">Defs_WeatherOpen</include>
-                <autoscroll time="8000">![Control.HasFocus(9001) | Control.HasFocus(9101)]</autoscroll>
-                <scrolltime tween="sine" easing="out">240</scrolltime>
-                <itemlayout />
-                <focusedlayout width="1920" height="1080" />
-                <content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
-            </control>
-        </controls>
-    </submenuOther>
-    <other include="widget">
-        <property name="content" tag="property" attribute="name|widget" value="Weather">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,]/</property>
-        <property name="content" tag="property" attribute="name|widgetPath" />
-        <property name="content">$VAR[Defs_HomeWidget_Content]</property>
-        <property name="target" tag="property" attribute="name|widgetTarget" />
-        <property name="target">$VAR[Defs_HomeWidget_Target]</property>
-        <property name="isWeather" tag="property" attribute="name|widget" value="Weather">True</property>
-        <property name="isWeather">False</property>
-        <controls>
-            <control type="wraplist" id="9001">
-                <visible>!Integer.IsEqual(Window(Home).Property(MenuFocus),9002) | String.IsEmpty(Container(9002).ListItem.Property(widget))</visible>
-                <skinshortcuts>visibility</skinshortcuts>
-                <visible>!Player.HasVideo | [Player.HasVideo + !Skin.HasSetting(background.showvideo)]</visible>
-                <orientation>horizontal</orientation>
-                <width>100%</width>
-                <top>top</top>
-                <height>height</height>
-                <onfocus>SetProperty(FO9001,1,home)</onfocus>
-                <onunfocus>ClearProperty(FO9001,home)</onunfocus>
-                <onup>ClearProperty(FO9001,home)</onup>
-                <ondown>ClearProperty(FO9001,home)</ondown>
-                <onback>ClearProperty(FO9001,home)</onback>
-                <onback>9000</onback>
-                <ondown>9000</ondown>
-                <onup>SetFocus(9002)</onup>
-                <include condition="$SKINSHORTCUTS[isWeather]">Defs_WeatherOpen</include>
-                <autoscroll time="8000">![Control.HasFocus(9001) | Control.HasFocus(9101)]</autoscroll>
-                <scrolltime tween="sine" easing="out">240</scrolltime>
-                <itemlayout />
-                <focusedlayout width="1920" height="1080" />
-                <content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
-            </control>
-        </controls>
-    </other>
-</template>
+<templates>
+	<template include="skinshortcuts-mainmenu-widget" menu="mainmenu">
+		<control type="wraplist" id="9001">
+			<visible>String.IsFalse(Player.HasVideo) OR [Player.HasVideo AND String.IsFalse(Skin.HasSetting(background.showvideo))]</visible>
+			<orientation>horizontal</orientation>
+			<left>520</left>
+			<width>1480</width>
+			<top>26</top>
+			<height>288</height>
+			<onup>SetFocus(9000)</onup>
+			<ondown>SetFocus(9000)</ondown>
+			<allowhiddenfocus>true</allowhiddenfocus>
+			<itemlayout width="188" height="288">
+				<control type="image">
+					<width>188</width>
+					<height>288</height>
+					<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+					<texture fallback="DefaultVideo.png" background="true" cache="refresh">$VAR[Image_Widget_Poster]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout width="188" height="288">
+				<control type="image">
+					<width>188</width>
+					<height>288</height>
+					<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+					<texture fallback="DefaultVideo.png" background="true" cache="refresh">$VAR[Image_Widget_Poster]</texture>
+				</control>
+			</focusedlayout>
+			<content update="unfocused" target="$INFO[Container(9000).ListItem.Property(widgetTarget)]">$INFO[Container(9000).ListItem.Property(widgetPath)]</content>
+		</control>
+	</template>
+	<template include="skinshortcuts-mainmenu-submenu" menu="mainmenu">
+		<control type="panel" id="9002">
+			<onup>SetFocus(9000)</onup>
+			<ondown>SetFocus(9001)</ondown>
+			<onback>SetFocus(9000)</onback>
+			<left>30</left>
+			<right>20</right>
+			<top>88</top>
+			<bottom>32</bottom>
+			<onleft>noop</onleft>
+			<onright>noop</onright>
+			<scrolltime>200</scrolltime>
+			<orientation>horizontal</orientation>
+			<itemlayout width="374" height="69">
+				<control type="image">
+					<width>364</width>
+					<height>69</height>
+					<texture colordiffuse="PosterBorder">common/white.png</texture>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<right>30</right>
+					<height>69</height>
+					<textcolor>ListLabel</textcolor>
+					<font>Font-ListInfo-Small</font>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout width="374" height="69">
+				<control type="image">
+					<width>364</width>
+					<height>69</height>
+					<texture colordiffuse="$VAR[HighlightColor]">common/white.png</texture>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<right>30</right>
+					<height>69</height>
+					<textcolor>Selected</textcolor>
+					<font>Font-ListInfo-Small</font>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+			<content>
+				<skinshortcuts element="items"/>
+			</content>
+		</control>
+	</template>
+	<template include="skinshortcuts-submenu" menu="mainmenu">
+		<skinshortcuts element="items"/>
+	</template>
+	<template include="skinshortcuts-powermenu" menu="powermenu">
+		<skinshortcuts element="items"/>
+	</template>
+</templates>
