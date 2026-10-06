@@ -1,4 +1,19 @@
-4.0.0
-- Remove ExtendedInfo
-- Remove XBMC. prefix
-- Remove autocompletion plugin
+5.0.1
+Fix: Media flags (audio/video) display for all files
+- Fixed an issue where audio and video codec icons were missing for certain library items.
+- Expanded format mapping to ensure accurate graphic rendering regardless of stream encoding.
+- Introduced a fallback system for physical disc images and folder structures:
+  - Blu-ray (ISO / BDMV): Forced h264 video and Dolby/DTS audio flags when database fields are empty.
+  - DVD (ISO / VIDEO_TS): Automatically mapped the generic 'dvd' tag to mpeg2video and loaded the AC3 audio icon.
+- Optimized detection precision for MPEG-1 and MPEG-2 formats.
+- Added a container-based fallback for legacy, unindexed MPEG files.
+
+5.0.0
+- GUI API Version Bump: Updated the addon.xml file to xbmc.gui version 5.18.0, ensuring full, native compatibility with the Kodi 22 environment.
+- XML File Adaptation: Adapted and optimized exclusively the main skin XML files and specific sections to align with the new requirements and the Kodi 22 rendering engine.
+- Migration to Skin Shortcuts v3: Completely updated the entire shortcuts folder and its files in accordance with the latest guidelines and v3 specifications.
+- Python 3.14 Support: Adjusted the skin's internal scripts and helper widgets to meet the requirements of the new runtime environment.
+- Power Menu Update: Tailored and optimized the power menu functionality to match the standards of the new version.
+- Skin Settings Modification: The skin settings section remains virtually untouched, except for the adaptation of the fallbackwidget mechanism for Kodi 22. As a result, some secondary configurations may not be fully compatible.
+- UI Elements Functionality: Ensured operational support for core modules, including the main menu customizer, widgets, and submenus.
+- Disabled Features: Power menu editing, tile color customization, Replace Fallback with Image, Show gadget posters.
