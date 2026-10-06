@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<property name="widget" type="widget"/>
+	<property name="fallback_widget" type="widget"/>
+	<buttons>
+		<button id="322" property="widget" type="widget"/>
+		<button id="8103" property="fallback_widget" type="widget"/>
+	</buttons>
+</properties>

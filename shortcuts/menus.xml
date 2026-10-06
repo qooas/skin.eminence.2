@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+	<menu name="mainmenu" container="9000">
+		<allow widgets="true" backgrounds="true" submenus="true"/>
+		<defaults widget="Weather">
+			<onback>9701</onback>
+			<action when="after" condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</action>
+			<action when="after" condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</action>
+		</defaults>
+		<item name="favourites" widget="recent-movies">
+			<label>1036</label>
+			<icon>special://skin/extras/icons/favourites.png</icon>
+			<action>ActivateWindow(Favouritesbrowser)</action>
+		</item>
+		<item name="videos" widget="recent-movies">
+			<label>3</label>
+			<icon>special://skin/extras/icons/video-addons.png</icon>
+			<action>ActivateWindow(Videos,VideoLibrary)</action>
+		</item>
+		<item name="movies" submenu="x1101" widget="recent-movies">
+			<label>20342</label>
+			<icon>special://skin/extras/icons/film.png</icon>
+			<action>ActivateWindow(Videos,MovieTitles,return)</action>
+		</item>
+		<item name="tvshows" submenu="x1102" widget="recent-movies">
+			<label>20343</label>
+			<icon>special://skin/extras/icons/tv.png</icon>
+			<action>ActivateWindow(Videos,TvShowTitles,return)</action>
+		</item>
+		<item name="music" widget="recent-movies">
+			<label>2</label>
+			<icon>special://skin/extras/icons/songs.png</icon>
+			<action>ActivateWindow(Music)</action>
+		</item>
+		<item name="livetv" widget="recent-movies">
+			<label>19020</label>
+			<icon>special://skin/extras/icons/livetv.png</icon>
+			<action>ActivateWindow(TVChannels)</action>
+		</item>
+		<item name="pictures" widget="recent-movies">
+			<label>1</label>
+			<icon>special://skin/extras/icons/pictures.png</icon>
+			<action>ActivateWindow(Pictures)</action>
+		</item>
+		<item name="programs" widget="recent-movies">
+			<label>24001</label>
+			<icon>special://skin/extras/icons/addons.png</icon>
+			<action>ActivateWindow(Programs)</action>
+		</item>
+		<item name="skin_weather" widget="recent-movies">
+			<label>8</label>
+			<icon>special://skin/extras/icons/weather.png</icon>
+			<action>ActivateWindow(Weather)</action>
+		</item>
+		<item name="settings" widget="recent-movies">
+			<label>5</label>
+			<icon>special://skin/extras/icons/settings.png</icon>
+			<action>ActivateWindow(Settings)</action>
+		</item>
+		<item name="power" menu="powermenu" widget="recent-movies">
+			<label>13005</label>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<action>ActivateWindow(shutdownmenu)</action>
+		</item>
+	</menu>
+	<submenu name="x1101">
+		<allow widgets="true" submenus="false"/>
+		<item name="movie_recently_added">
+			<label>20386</label>
+			<icon>special://skin/extras/icons/recentlyadded.png</icon>
+			<action>ActivateWindow(Videos,RecentlyAddedMovies,return)</action>
+		</item>
+		<item name="movie_recent_playlist">
+			<label>31101</label>
+			<icon>special://skin/extras/icons/recent.png</icon>
+			<action>ActivateWindow(Videos,special://skin/extras/playlists/RecentMovies.xsp,return)</action>
+		</item>
+		<item name="movie_global_search">
+			<label>137</label>
+			<icon>special://skin/extras/icons/search.png</icon>
+			<action>RunScript(script.globalsearch,tvshows=true,episodes=true,movies=true)</action>
+		</item>
+		<item name="movie_genres">
+			<label>135</label>
+			<icon>special://skin/extras/icons/genre.png</icon>
+			<action>ActivateWindow(Videos,MovieGenres,return)</action>
+		</item>
+		<item name="movie_sets">
+			<label>20434</label>
+			<icon>special://skin/extras/icons/year.png</icon>
+			<action>ActivateWindow(Videos,MovieSets,return)</action>
+		</item>
+		<item name="movie_playlists">
+			<label>20006</label>
+			<icon>special://skin/extras/icons/playlist.png</icon>
+			<action>ActivateWindow(videos,special://videoplaylists/,return)</action>
+		</item>
+		<item name="movie_files">
+			<label>744</label>
+			<icon>special://skin/extras/icons/files.png</icon>
+			<action>ActivateWindow(Videos,Files,return)</action>
+		</item>
+	</submenu>
+	<submenu name="x1102">
+		<allow widgets="true" submenus="false"/>
+		<item name="tv_recently_added">
+			<label>20387</label>
+			<icon>special://skin/extras/icons/recentlyadded.png</icon>
+			<action>ActivateWindow(Videos,RecentlyAddedEpisodes,return)</action>
+		</item>
+		<item name="tv_recent_playlist">
+			<label>31101</label>
+			<icon>special://skin/extras/icons/recent.png</icon>
+			<action>ActivateWindow(Videos,special://skin/extras/playlists/RecentEpisodes.xsp,return)</action>
+		</item>
+		<item name="tv_global_search">
+			<label>137</label>
+			<icon>special://skin/extras/icons/search.png</icon>
+			<action>RunScript(script.globalsearch,tvshows=true,episodes=true,movies=true)</action>
+		</item>
+		<item name="tv_genres">
+			<label>135</label>
+			<icon>special://skin/extras/icons/genre.png</icon>
+			<action>ActivateWindow(Videos,TvShowGenres,return)</action>
+		</item>
+		<item name="tv_years">
+			<label>562</label>
+			<icon>special://skin/extras/icons/year.png</icon>
+			<action>ActivateWindow(Videos,TvShowYears,return)</action>
+		</item>
+		<item name="tv_playlists">
+			<label>20006</label>
+			<icon>special://skin/extras/icons/playlist.png</icon>
+			<action>ActivateWindow(videos,special://videoplaylists/,return)</action>
+		</item>
+		<item name="tv_files">
+			<label>744</label>
+			<icon>special://skin/extras/icons/files.png</icon>
+			<action>ActivateWindow(Videos,Files,return)</action>
+		</item>
+	</submenu>
+	<submenu name="x1111" link="x1102">
+		<allow widgets="true" submenus="false"/>
+	</submenu>
+	<submenu name="x1112" link="x1102">
+		<allow widgets="true" submenus="false"/>
+	</submenu>
+	<menu name="powermenu">
+		<allow widgets="false" submenus="false" backgrounds="false"/>
+		<defaults>
+			<action when="before">noop</action>
+		</defaults>
+		<item name="custom_settings">
+			<label>5</label>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<action>Dialog.Close(all,true)</action>
+			<action>ActivateWindow(Settings)</action>
+		</item>
+		<item name="custom_reload">
+			<label>31171</label>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<action>Dialog.Close(all,true)</action>
+			<action>ReloadSkin()</action>
+		</item>
+		<item name="custom_timer">
+			<label>20150</label>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<action>AlarmClock(shutdowntimer,Powerdown())</action>
+			<action>Dialog.Close(all,true)</action>
+		</item>
+		<item name="custom_suspend">
+			<label>13011</label>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<action>Suspend()</action>
+		</item>
+		<item name="custom_reset">
+			<label>13013</label>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<action>Reboot()</action>
+		</item>
+		<item name="custom_quit">
+			<label>13012</label>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<action>Quit()</action>
+		</item>
+		<item name="custom_powerdown" required="true">
+			<label>13016</label>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<action>Powerdown()</action>
+		</item>
+	</menu>
+	<groupings>
+		<group name="common" label="$LOCALIZE[128]" icon="DefaultFolder.png">
+			<shortcut name="videos" label="$LOCALIZE[3]" icon="DefaultVideo.png">
+				<action>ActivateWindow(Videos,library://video/,return)</action>
+			</shortcut>
+			<shortcut name="movies" label="$LOCALIZE[20342]" icon="DefaultMovies.png" visible="Library.HasContent(movies)">
+				<action>ActivateWindow(Videos,videodb://movies/titles/,return)</action>
+			</shortcut>
+			<shortcut name="tvshows" label="$LOCALIZE[20343]" icon="DefaultTVShows.png" visible="Library.HasContent(tvshows)">
+				<action>ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
+			</shortcut>
+			<shortcut name="musicvideos" label="$LOCALIZE[20389]" icon="DefaultMusicVideos.png" visible="Library.HasContent(musicvideos)">
+				<action>ActivateWindow(Videos,videodb://musicvideos/titles/,return)</action>
+			</shortcut>
+			<shortcut name="music" label="$LOCALIZE[2]" icon="DefaultMusicAlbums.png">
+				<action>ActivateWindow(Music,library://music/,return)</action>
+			</shortcut>
+			<shortcut name="pictures" label="$LOCALIZE[1]" icon="DefaultPicture.png">
+				<action>ActivateWindow(Pictures)</action>
+			</shortcut>
+			<shortcut name="programs" label="$LOCALIZE[0]" icon="DefaultAddonProgram.png">
+				<action>ActivateWindow(Programs,Addons,return)</action>
+			</shortcut>
+			<shortcut name="games" label="$LOCALIZE[15016]" icon="DefaultAddonGame.png">
+				<action>ActivateWindow(Games)</action>
+			</shortcut>
+			<shortcut name="weather" label="$LOCALIZE[8]" icon="DefaultAddonWeather.png">
+				<action>ActivateWindow(Weather)</action>
+			</shortcut>
+			<shortcut name="favourites" label="$LOCALIZE[1036]" icon="special://skin/extras/icons/favourites.png">
+				<action>ActivateWindow(favouritesbrowser)</action>
+			</shortcut>
+			<shortcut name="filemanager" label="$LOCALIZE[7]" icon="DefaultFolder.png">
+				<action>ActivateWindow(FileManager)</action>
+			</shortcut>
+			<shortcut name="settings" label="$LOCALIZE[5]" icon="DefaultAddonService.png">
+				<action>ActivateWindow(Settings)</action>
+			</shortcut>
+		</group>
+		<group name="tv" label="$LOCALIZE[19020]" icon="DefaultPVRChannels.png" visible="PVR.HasTVChannels">
+			<shortcut name="tv-guide" label="$LOCALIZE[22020]" icon="DefaultPVRGuide.png">
+				<action>ActivateWindow(TVGuide)</action>
+			</shortcut>
+			<shortcut name="tv-channels" label="$LOCALIZE[19023]" icon="DefaultPVRChannels.png">
+				<action>ActivateWindow(TVChannels)</action>
+			</shortcut>
+			<shortcut name="tv-recordings" label="$LOCALIZE[19163]" icon="DefaultPVRRecordings.png">
+				<action>ActivateWindow(TVRecordings)</action>
+			</shortcut>
+			<content source="pvr" target="tv"/>
+		</group>
+		<group name="radio" label="$LOCALIZE[19021]" icon="DefaultPVRChannels.png" visible="PVR.HasRadioChannels">
+			<shortcut name="radio-guide" label="$LOCALIZE[22020]" icon="DefaultPVRGuide.png">
+				<action>ActivateWindow(RadioGuide)</action>
+			</shortcut>
+			<shortcut name="radio-channels" label="$LOCALIZE[19024]" icon="DefaultPVRChannels.png">
+				<action>ActivateWindow(RadioChannels)</action>
+			</shortcut>
+			<content source="pvr" target="radio"/>
+		</group>
+		<group name="library" label="$LOCALIZE[14022]" icon="DefaultVideo.png">
+			<content source="nodes" target="Videos"/>
+			<content source="nodes" target="music"/>
+		</group>
+		<group name="playlists" label="$LOCALIZE[20011]" icon="DefaultPlaylist.png">
+			<content source="playlists" target="Videos"/>
+			<content source="playlists" target="music"/>
+		</group>
+		<group name="addons" label="$LOCALIZE[24001]" icon="DefaultAddon.png">
+			<group name="addons-video" label="$LOCALIZE[20384]" icon="DefaultAddonVideo.png">
+				<content source="addons" target="Videos"/>
+			</group>
+			<group name="addons-music" label="$LOCALIZE[24002]" icon="DefaultAddonMusic.png">
+				<content source="addons" target="music"/>
+			</group>
+			<group name="addons-pictures" label="$LOCALIZE[24003]" icon="DefaultAddonPicture.png">
+				<content source="addons" target="pictures"/>
+			</group>
+			<group name="addons-programs" label="$LOCALIZE[24004]" icon="DefaultAddonProgram.png">
+				<content source="addons" target="programs"/>
+			</group>
+		</group>
+		<group name="sources" label="$LOCALIZE[39031]" icon="DefaultAddonsRepo.png">
+			<content source="sources" target="Videos"/>
+			<content source="sources" target="music"/>
+			<content source="sources" target="pictures"/>
+		</group>
+		<group name="favourites" label="$LOCALIZE[1036]" icon="special://skin/extras/icons/favourites.png">
+			<content source="favourites"/>
+		</group>
+		<group name="settings" label="$LOCALIZE[5]" icon="DefaultAddonService.png">
+			<content source="settings"/>
+		</group>
+		<group name="power" label="$LOCALIZE[13005]" icon="DefaultAddonNone.png">
+			<content source="commands"/>
+		</group>
+	</groupings>
+	<widget-groupings>
+		<grouping name="multi_widgets"/>
+	</widget-groupings>
+	<icons>
+		<source label="31146">special://skin/extras/icons/</source>
+		<source label="1024">browse</source>
+		<rule widget="widget_favourites">special://skin/extras/icons/favourites.png</rule>
+		<rule path="favourites://">special://skin/extras/icons/favourites.png</rule>
+		<rule fallback="DefaultAddonWeather.png">special://skin/extras/icons/weather.png</rule>
+		<rule fallback="DefaultShortcut.png">special://skin/extras/icons/addon.png</rule>
+		<rule fallback="DefaultVideo.png">special://skin/extras/icons/video.png</rule>
+		<rule fallback="DefaultMovies.png">special://skin/extras/icons/film.png</rule>
+		<rule fallback="DefaultTVShows.png">special://skin/extras/icons/tv.png</rule>
+	</icons>
+	<overrides>
+		<group name="mainmenu" widgets="true">
+			<property name="widget">widget</property>
+			<property name="widgetPath">widgetPath</property>
+			<property name="widgetName">widgetName</property>
+			<property name="widgetLabel">widgetLabel</property>
+			<property name="widgetType">widgetType</property>
+			<property name="widgetTarget">widgetTarget</property>
+			<property name="tilecolor">tilecolor</property>
+			<property name="background">background</property>
+		</group>
+		<action>
+			<command>ActivateWindow(Settings)</command>
+		</action>
+		<action condition="Window.IsActive(playercontrols) OR Window.IsActive(powermenudialog)">
+			<command>Dialog.Close(all)</command>
+		</action>
+		<action condition="!String.IsEmpty(Container(9501).ListItem.Property(path)) AND String.StartsWith(Container(9501).ListItem.Property(path),'ActivateWindow') AND !String.Contains(Container(9501).ListItem.Property(path),'DialogFavourites') AND !String.Contains(Container(9501).ListItem.Property(path),'DialogButtonMenu') AND !String.Contains(Container(9501).ListItem.Property(path),'powermenudialog') AND !String.Contains(Container(9501).ListItem.Property(path),'favourites')">
+			<command>SetProperty(WindowBaseReturn,Container(9501).ListItem.Property(list),home)</command>
+		</action>
+		<action condition="Window.IsActive(1101) AND Window.IsActive(1102)">
+			<command>ReplaceWindow(Videos,MovieTitles,return)</command>
+		</action>
+	</overrides>
+</menus>
