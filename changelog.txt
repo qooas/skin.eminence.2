@@ -1,3 +1,11 @@
+5.0.2
+Features & Modifications:
+- Power menu editing: Enabled full customization of powermenu elements.
+- Sidebar optimization: Reconstructed the display conditions for sidebar elements. The "Widget Selection" and "Edit Submenu" options are now dynamically hidden in sections where they are redundant (the power menu and standard submenus). These functions remain visible exclusively at the main menu level, improving UI clarity.
+Audio Codecs & Flags Fixes:
+- E-AC3 (Dolby Digital Plus) optimization: Removed the faulty XML parser condition (dd+) and introduced correct rules based on the native Kodi database (eac3) and file naming conventions (eac3, ddp). This ensures correct audio icon rendering and 100% clean system logs.
+- Video views optimization: Removed dead code injection blocks in Viewtype_Icon.xml. This restored 100% compatibility and completely cleared logs when loading MyVideoNav.xml, with no impact on the skin's visual appearance.
+
 5.0.1
 Fix: Media flags (audio/video) display for all files
 - Fixed an issue where audio and video codec icons were missing for certain library items.
