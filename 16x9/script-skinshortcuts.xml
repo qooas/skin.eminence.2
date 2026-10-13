@@ -157,12 +157,14 @@
 					<label>$ADDON[script.skinshortcuts 32044]</label>
 					<label2 fallback="31011">$INFO[Container(211).ListItem.Property(widgetLabel)]</label2>
 					<include>Defs_OptionButton</include>
+					<visible>!String.Contains(Container(211).ListItem.Icon,power.png) + [!String.IsEmpty(Container(211).ListItem.Property(widgetLabel)) | String.IsEqual(Container(211).ListItem.Property(shortcutname),settings) | String.IsEqual(Container(211).ListItem.Property(shortcutname),skin_weather)]</visible>
 				</control>
 				<control type="button" id="405" description="Edit Submenu">
 					<width>1005</width>
 					<height>72</height>
 					<label>$ADDON[script.skinshortcuts 32048]</label>
 					<include>Defs_OptionButton</include>
+					<visible>!String.Contains(Container(211).ListItem.Icon,power.png) + [!String.IsEmpty(Container(211).ListItem.Property(widgetLabel)) | String.IsEqual(Container(211).ListItem.Property(shortcutname),settings) | String.IsEqual(Container(211).ListItem.Property(shortcutname),skin_weather)]</visible>
 				</control>
 				<control type="button" id="311" description="Restore default items">
 					<width>1005</width>
