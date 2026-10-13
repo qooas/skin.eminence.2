@@ -1217,15 +1217,15 @@
 							<include>Defs_OptionButton</include>
 							<visible>ControlGroup(8000).HasFocus(8009)</visible>
 						</control>
-						<!-- Customise Shutdown Menu
-                        <control type="button" id="8907">
-                            <width>100%</width>
-                            <label>31183</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=powermenu)</onclick>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8009)</visible>
-                        </control> -->
+						<!-- Customise Shutdown Menu -->
+						<control type="button" id="8907">
+							<width>100%</width>
+							<label>31183</label>
+							<onclick>RunScript(script.skinshortcuts,type=manage&amp;menu=powermenu)</onclick>
+							<height>72</height>
+							<include>Defs_OptionButton</include>
+							<visible>ControlGroup(8000).HasFocus(8009)</visible>
+						</control>
 						<!-- Startup Video -->
 						<control type="button" id="8908">
 							<width>100%</width>
