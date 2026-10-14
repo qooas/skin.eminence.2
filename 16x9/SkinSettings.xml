@@ -812,7 +812,8 @@
 							<include>Defs_OptionButton</include>
 							<visible>ControlGroup(8000).HasFocus(8008)</visible>
 						</control>
-						<!-- Tile Colors
+						<!-- Tile Colors -->
+                        <!-- 
                         <control type="radiobutton" id="8804">
                             <width>100%</width>
                             <label>31129</label>
@@ -823,6 +824,7 @@
                             <include>Defs_OptionButton</include>
                             <visible>ControlGroup(8000).HasFocus(8008)</visible>
                         </control>
+                        -->
                         <control type="radiobutton" id="8805">
                             <width>100%</width>
                             <label>31140</label>
@@ -831,9 +833,8 @@
                             <selected>Skin.HasSetting(home.tilecolor.nofocus)</selected>
                             <height>72</height>
                             <include>Defs_OptionButton</include>
-                            <enable>Skin.HasSetting(home.tilecolor)</enable>
                             <visible>ControlGroup(8000).HasFocus(8008)</visible>
-                        </control>-->
+                        </control>
 						<!-- LIBRARY -->
 						<control type="label" id="8599">
 							<width>100%</width>
