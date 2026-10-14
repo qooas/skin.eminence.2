@@ -393,7 +393,7 @@
 		<value condition="String.IsEqual(ListItem.AudioCodec,wma)">indicator/audio/wma.png</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,eac3) | String.Contains(ListItem.FileName,eac3) | String.Contains(ListItem.FileName,ddp)">indicator/audio/eac3.png</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,ac3)">indicator/audio/ac3.png</value>
-		<value condition="String.IsEqual(ListItem.AudioCodec,mp3) | String.IsEqual(ListItem.AudioCodec,mp2) | String.IsEqual(ListItem.AudioCodec,mpeg2audio)">indicator/audio/mp3.png</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,mp3) | String.IsEqual(ListItem.AudioCodec,mp2) | String.IsEqual(ListItem.AudioCodec,mp1) | String.Contains(ListItem.AudioCodec,mpeg) | String.IsEqual(ListItem.AudioCodec,mpa) | String.IsEqual(ListItem.AudioCodec,mp4a) | String.Contains(ListItem.FileName,.mp3) | String.Contains(ListItem.FileName,.mp2)">indicator/audio/mp3.png</value>
 		<value condition="!String.IsEmpty(ListItem.AudioCodec) + !String.IsEqual(ListItem.VideoCodec,dvd) + !String.Contains(ListItem.Path,BDMV)">$INFO[ListItem.AudioCodec]</value>
 		<value>$VAR[Image_AudioCodec]</value>
 	</variable>
