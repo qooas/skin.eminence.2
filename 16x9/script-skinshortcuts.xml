@@ -166,11 +166,18 @@
 					<include>Defs_OptionButton</include>
 					<visible>!String.Contains(Container(211).ListItem.Icon,power.png) + [!String.IsEmpty(Container(211).ListItem.Property(widgetLabel)) | String.IsEqual(Container(211).ListItem.Property(shortcutname),settings) | String.IsEqual(Container(211).ListItem.Property(shortcutname),skin_weather)]</visible>
 				</control>
-				<control type="button" id="311" description="Restore default items">
-					<width>1005</width>
-					<height>72</height>
+				<control type="button" id="311" description="Reset Main Menu">
+					<width>100%</width>
 					<label>$ADDON[script.skinshortcuts 32028]</label>
 					<include>Defs_OptionButton</include>
+					<visible>!String.IsEqual(Window(Home).Property(skinshortcuts-group),powermenu)</visible>
+				</control>
+				<control type="button" id="3110" description="Reset Power Menu">
+					<width>100%</width>
+					<label>$ADDON[script.skinshortcuts 32028]</label>
+					<include>Defs_OptionButton</include>
+					<visible>String.IsEqual(Window(Home).Property(skinshortcuts-group),powermenu)</visible>
+					<onclick>RunScript(script.skinshortcuts,type=reset&amp;menu=powermenu)</onclick>
 				</control>
 			</control>
 			<control type="group" id="9200">
