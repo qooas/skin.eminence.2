@@ -4,6 +4,7 @@
 		<allow widgets="true" backgrounds="true" submenus="true"/>
 		<defaults widget="Weather">
 			<onback>9701</onback>
+			<property name="tilecolor"></property>
 			<action when="after" condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</action>
 			<action when="after" condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</action>
 		</defaults>
