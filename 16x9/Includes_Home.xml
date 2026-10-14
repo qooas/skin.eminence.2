@@ -110,18 +110,16 @@
 				<bottom>0</bottom>
 				<height>266</height>
 				<onfocus>SetProperty(MenuFocus,9000,Home)</onfocus>
-				<onup condition="[Skin.HasSetting(home.disableplayercontrols) | !Player.HasMedia] + !Window.IsVisible(PlayerControls.xml)">SetProperty(FO9001,1,home)</onup>
-				<onup condition="[Skin.HasSetting(home.disableplayercontrols) | !Player.HasMedia] + !Window.IsVisible(PlayerControls.xml) + [[!String.IsEmpty(Container(9000).ListItem.Property(widget))] | [String.IsEmpty(Container(9000).ListItem.Property(widget))]]">9001</onup>
-				<onup condition="Player.HasMedia + !Window.IsVisible(PlayerControls.xml) + !Skin.HasSetting(home.disableplayercontrols)">9005</onup>
-				<ondown condition="Integer.IsGreater(Container(9002).NumItems,0) + !Window.IsVisible(PlayerControls.xml)">9002</ondown>
-				<ondown condition="!Integer.IsGreater(Container(9002).NumItems,0) + !Window.IsVisible(PlayerControls.xml) + !Skin.HasSetting(DisableShowcase)">ActivateWindow(1131)</ondown>
+				<onup condition="!Player.HasMedia">9001</onup>
+				<onup condition="Player.HasMedia">SetFocus(9005)</onup>
+				<ondown condition="!Window.IsVisible(PlayerControls.xml)">9002</ondown>
 				<animation type="Visible">
 					<effect type="slide" start="0,266" end="0" time="150"/>
 				</animation>
 				<orientation>horizontal</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<!-- Default Home -->
-				<itemlayout width="188" height="266" condition="!String.IsEqual(Skin.String(home.style),$LOCALIZE[31181]) + !String.IsEqual(Skin.String(home.style),$LOCALIZE[31182])">
+				<itemlayout width="188" height="266" condition="String.IsNotEqual(Skin.String(home.style),$LOCALIZE[31181]) AND String.IsNotEqual(Skin.String(home.style),$LOCALIZE[31182])">
 					<control type="image">
 						<top>16</top>
 						<width>196</width>
@@ -130,12 +128,20 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
-						<top>44</top>
-						<left>28</left>
-						<width>140</width>
-						<height>114</height>
+						<top>16</top>
+						<width>196</width>
+						<height>170</height>
+						<texture colordiffuse="$VAR[Defs_HomeTileColor]">common/tile.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>Skin.HasSetting(home.tilecolor.nofocus)</visible>
+						<animation effect="fade" start="100" end="25" condition="true">Conditional</animation>
+					</control>
+					<control type="image">
+						<top>16</top>
+						<width>196</width>
+						<height>170</height>
 						<texture colordiffuse="HomeBarFG" diffuse="common/tile.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+						<aspectratio scalediffuse="false">center</aspectratio>
 						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
 					</control>
 					<control type="label">
@@ -150,7 +156,7 @@
 						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
 					</control>
 				</itemlayout>
-				<focusedlayout width="188" height="266" condition="!String.IsEqual(Skin.String(home.style),$LOCALIZE[31181]) + !String.IsEqual(Skin.String(home.style),$LOCALIZE[31182])">
+				<focusedlayout width="188" height="266" condition="String.IsNotEqual(Skin.String(home.style),$LOCALIZE[31181]) AND String.IsNotEqual(Skin.String(home.style),$LOCALIZE[31182])">
 					<control type="image">
 						<top>16</top>
 						<width>196</width>
@@ -159,12 +165,11 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
-						<top>34</top>
-						<left>18</left>
-						<width>160</width>
-						<height>134</height>
+						<top>16</top>
+						<width>196</width>
+						<height>170</height>
 						<texture colordiffuse="Selected" diffuse="common/tile.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+						<aspectratio scalediffuse="false">center</aspectratio>
 					</control>
 					<control type="label">
 						<top>188</top>
@@ -178,7 +183,7 @@
 						<animation effect="slide" start="0" end="0,-12" time="100" reversible="false">Focus</animation>
 					</control>
 					<control type="image">
-						<left>86</left>
+						<centerleft>85</centerleft>
 						<bottom>0</bottom>
 						<width>16</width>
 						<height>16</height>
@@ -203,25 +208,15 @@
 						<height>170</height>
 						<texture colordiffuse="HomeBarTile">common/tile.png</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>String.IsEmpty(ListItem.Property(tilecolor)) | !Skin.HasSetting(home.tilecolor.nofocus) | !Skin.HasSetting(home.tilecolor)</visible>
 					</control>
 					<control type="image">
 						<top>16</top>
 						<width>196</width>
 						<height>170</height>
-						<texture colordiffuse="$VAR[HighlightColor]">common/tile.png</texture>
-						<animation effect="fade" start="100" end="25" condition="true">Conditional</animation>
+						<texture colordiffuse="$VAR[Defs_HomeTileColor]">common/tile.png</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>String.IsEmpty(ListItem.Property(tilecolor)) + Skin.HasSetting(home.tilecolor.nofocus) + Skin.HasSetting(home.tilecolor)</visible>
-					</control>
-					<control type="image">
-						<top>16</top>
-						<width>196</width>
-						<height>170</height>
+						<visible>Skin.HasSetting(home.tilecolor.nofocus)</visible>
 						<animation effect="fade" start="100" end="25" condition="true">Conditional</animation>
-						<texture colordiffuse="HomeBarFG" diffuse="common/tile.png">special://skin/extras/colors/$INFO[ListItem.Property(tilecolor)].png</texture>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<visible>!String.IsEmpty(ListItem.Property(tilecolor)) + Skin.HasSetting(home.tilecolor.nofocus) + Skin.HasSetting(home.tilecolor)</visible>
 					</control>
 					<control type="image">
 						<top>-6</top>
@@ -350,7 +345,7 @@
 			<!-- Icon Hang -->
 			<control type="group">
 				<visible>!Skin.HasSetting(home.transparent)</visible>
-				<visible>Container(9000).HasNext | Container(9000).HasPrevious</visible>
+				<visible>Container(9000).HasNext OR Container(9000).HasPrevious</visible>
 				<visible>!String.IsEqual(Skin.String(home.style),$LOCALIZE[31182])</visible>
 				<left>-172</left>
 				<right>-172</right>
