@@ -1,3 +1,9 @@
+5.0.3
+- Re-implemented "Show tile colour on unfocused tiles".
+- Fixed RSS feed position issue when widgets are active.
+- Fixed missing MPEG Audio icon.
+- Fixed restore default items action in powermenu.
+
 5.0.2
 Features & Modifications:
 - Power menu editing: Enabled full customization of powermenu elements.
