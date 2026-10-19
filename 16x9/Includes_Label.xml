@@ -62,6 +62,7 @@
 		<value condition="ListItem.IsRecording">[REC] </value>
 	</variable>
 	<variable name="Label_GenreLine">
+		<value condition="ListItem.IsCollection"></value>
 		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
 		<value condition="ListItem.IsCollection + !String.IsEmpty(Window(Home).Property(TMDBbHelper.ListItem.Genre))">$INFO[Window(Home).Property(TMDBbHelper.ListItem.Genre)]</value>
 		<value>$LOCALIZE[19499]</value>
@@ -136,6 +137,7 @@
 		<value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 	</variable>
 	<variable name="Label_Plot">
+		<value condition="ListItem.IsCollection + !String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
 		<value condition="ListItem.IsCollection">$INFO[Window(Home).Property(TMDBbHelper.ListItem.Plots)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
