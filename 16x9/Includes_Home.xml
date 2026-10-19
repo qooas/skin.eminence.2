@@ -119,7 +119,7 @@
 				<orientation>horizontal</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<!-- Default Home -->
-				<itemlayout width="188" height="266" condition="String.IsNotEqual(Skin.String(home.style),$LOCALIZE[31181]) AND String.IsNotEqual(Skin.String(home.style),$LOCALIZE[31182])">
+				<itemlayout width="188" height="266" condition="String.IsNotEqual(Skin.String(home.style),$LOCALIZE) AND String.IsNotEqual(Skin.String(home.style),$LOCALIZE)">
 					<control type="image">
 						<top>16</top>
 						<width>196</width>
@@ -137,11 +137,12 @@
 						<animation effect="fade" start="100" end="25" condition="true">Conditional</animation>
 					</control>
 					<control type="image">
-						<top>16</top>
-						<width>196</width>
-						<height>170</height>
+						<top>44</top>
+						<left>28</left>
+						<width>140</width>
+						<height>114</height>
 						<texture colordiffuse="HomeBarFG" diffuse="common/tile.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">center</aspectratio>
+						<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
 						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
 					</control>
 					<control type="label">
@@ -156,7 +157,7 @@
 						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
 					</control>
 				</itemlayout>
-				<focusedlayout width="188" height="266" condition="String.IsNotEqual(Skin.String(home.style),$LOCALIZE[31181]) AND String.IsNotEqual(Skin.String(home.style),$LOCALIZE[31182])">
+				<focusedlayout width="188" height="266" condition="String.IsNotEqual(Skin.String(home.style),$LOCALIZE) AND String.IsNotEqual(Skin.String(home.style),$LOCALIZE)">
 					<control type="image">
 						<top>16</top>
 						<width>196</width>
@@ -165,11 +166,12 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
-						<top>16</top>
-						<width>196</width>
-						<height>170</height>
+						<top>34</top>
+						<left>18</left>
+						<width>160</width>
+						<height>134</height>
 						<texture colordiffuse="Selected" diffuse="common/tile.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">center</aspectratio>
+						<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
 					</control>
 					<control type="label">
 						<top>188</top>
@@ -208,15 +210,25 @@
 						<height>170</height>
 						<texture colordiffuse="HomeBarTile">common/tile.png</texture>
 						<aspectratio>stretch</aspectratio>
+						<visible>String.IsEmpty(ListItem.Property(tilecolor)) | !Skin.HasSetting(home.tilecolor.nofocus) | !Skin.HasSetting(home.tilecolor)</visible>
 					</control>
 					<control type="image">
 						<top>16</top>
 						<width>196</width>
 						<height>170</height>
-						<texture colordiffuse="$VAR[Defs_HomeTileColor]">common/tile.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<visible>Skin.HasSetting(home.tilecolor.nofocus)</visible>
+						<texture colordiffuse="$VAR[HighlightColor]">common/tile.png</texture>
 						<animation effect="fade" start="100" end="25" condition="true">Conditional</animation>
+						<aspectratio>stretch</aspectratio>
+						<visible>String.IsEmpty(ListItem.Property(tilecolor)) + Skin.HasSetting(home.tilecolor.nofocus) + Skin.HasSetting(home.tilecolor)</visible>
+					</control>
+					<control type="image">
+						<top>16</top>
+						<width>196</width>
+						<height>170</height>
+						<animation effect="fade" start="100" end="25" condition="true">Conditional</animation>
+						<texture colordiffuse="HomeBarFG" diffuse="common/tile.png">special://skin/extras/colors/$INFO[ListItem.Property(tilecolor)].png</texture>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<visible>!String.IsEmpty(ListItem.Property(tilecolor)) + Skin.HasSetting(home.tilecolor.nofocus) + Skin.HasSetting(home.tilecolor)</visible>
 					</control>
 					<control type="image">
 						<top>-6</top>
@@ -228,11 +240,12 @@
 						<visible>String.Contains(ListItem.Icon,special://skin/extras/icons/)</visible>
 					</control>
 					<control type="image">
-						<top>16</top>
-						<width>196</width>
-						<height>170</height>
+						<top>44</top>
+						<left>28</left>
+						<width>140</width>
+						<height>114</height>
 						<texture colordiffuse="HomeBarFG" diffuse="common/tile.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">center</aspectratio>
+						<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
 						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
 						<visible>!String.Contains(ListItem.Icon,special://skin/extras/icons/)</visible>
 					</control>
@@ -266,11 +279,12 @@
 						<visible>String.Contains(ListItem.Icon,special://skin/extras/icons/)</visible>
 					</control>
 					<control type="image">
-						<top>16</top>
-						<width>196</width>
-						<height>170</height>
+						<top>44</top>
+						<left>28</left>
+						<width>140</width>
+						<height>114</height>
 						<texture colordiffuse="Selected" diffuse="common/tile.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">center</aspectratio>
+						<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
 						<visible>!String.Contains(ListItem.Icon,special://skin/extras/icons/)</visible>
 					</control>
 					<control type="label">
