@@ -1126,6 +1126,7 @@
             <textcolor>$VAR[HighlightColor2]</textcolor>
             <font>Font-ListInfo-Small-Bold</font>
             <label>$VAR[Label_GenreLine,[UPPERCASE],[/UPPERCASE]]</label>
+			<visible>!ListItem.IsCollection</visible>
         </control>
         <control type="textbox">
             <left>pad</left>
@@ -1222,6 +1223,7 @@
                             <textcolor>$VAR[HighlightColor2]</textcolor>
                             <font>Font-ListInfo-Small-Bold</font>
                             <label>$VAR[Label_GenreLine,[UPPERCASE],[/UPPERCASE]]</label>
+							<visible>!ListItem.IsCollection</visible>
                         </control>
                         <control type="textbox">
                             <left>pad</left>
