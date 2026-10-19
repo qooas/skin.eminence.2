@@ -523,6 +523,7 @@
                         <textcolor>$VAR[HighlightColor2]</textcolor>
                         <font>Font-ListInfo-Small-Bold</font>
                         <label>$VAR[Label_GenreLine,[UPPERCASE],[/UPPERCASE]]</label>
+						<visible>!ListItem.IsCollection</visible>
                         <visible>!String.IsEmpty(ListItem.Genre)</visible>
                     </control>
                     <control type="textbox">
