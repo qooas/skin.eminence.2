@@ -1,3 +1,11 @@
+5.0.4
+Fix:
+- Restored home tile icon zoom animation effect.
+Video Views:
+- Added plot descriptions for Movie Sets.
+- Hidden unnecessary genre information in Movie Sets view.
+- Adjusted description position to fill space left by hidden genres.
+
 5.0.3
 - Re-implemented "Show tile colour on unfocused tiles".
 - Fixed RSS feed position issue when widgets are active.
@@ -13,7 +21,7 @@ Audio Codecs & Flags Fixes:
 - Video views optimization: Removed dead code injection blocks in Viewtype_Icon.xml. This restored 100% compatibility and completely cleared logs when loading MyVideoNav.xml, with no impact on the skin's visual appearance.
 
 5.0.1
-Fix: Media flags (audio/video) display for all files
+[Fix] Media flags (audio/video) display for all files
 - Fixed an issue where audio and video codec icons were missing for certain library items.
 - Expanded format mapping to ensure accurate graphic rendering regardless of stream encoding.
 - Introduced a fallback system for physical disc images and folder structures:
