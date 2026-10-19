@@ -176,6 +176,7 @@
                                 <font>Font-ListInfo-Small-Bold</font>
                                 <textcolor>$VAR[HighlightColor2]</textcolor>
                                 <label>$VAR[Label_GenreLine,[UPPERCASE],[/UPPERCASE]]</label>
+								<visible>!ListItem.IsCollection</visible>
                                 <visible>!String.IsEqual(ListItem.Property(item.type),person) | String.IsEmpty(ListItem.Property(Aliases))</visible>
                             </control>
                             <control type="label">
